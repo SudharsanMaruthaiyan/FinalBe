@@ -17,7 +17,6 @@ app.use(cors({
 
 // connect mongodb 
 const mongoURL ="mongodb+srv://sudharsan6078:CSSe0IXzlDA2xzCj@done.l9ghk.mongodb.net/";
-// CSSe0IXzlDA2xzCj
 mongoose.connect(mongoURL)
 
 const DetailSchema = new mongoose.Schema({
@@ -43,7 +42,7 @@ app.post('/', async (req, res)=>{
 
 app.get('/', async (req,res)=>{
     try{
-        const data = await Details.Find();
+        const data = await Details.find();
         res.json({data , message:"data display"})
     }
     catch(err){
