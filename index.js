@@ -31,7 +31,7 @@ const UserSchema = new mongoose.Schema({
 const User = mongoose.model('User', UserSchema);
 
 // API to create a new user
-app.post('/', async (req, res) => {
+app.post('/get', async (req, res) => {
     const newUser = new User(req.body);
     try {
         const savedUser = await newUser.save();
