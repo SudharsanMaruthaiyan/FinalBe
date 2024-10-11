@@ -19,7 +19,9 @@ app.use(express.json());
 
 // MongoDB connection string
 const mongoURI = 'mongodb+srv://sudharsan6078:CSSe0IXzlDA2xzCj@done.l9ghk.mongodb.net/'; // Change this to your MongoDB URI
-mongoose.connect(mongoURI,{connectTimeoutMS: 45000,})
+mongoose.connect(mongoURI, {
+    connectTimeoutMS: 30000,
+})
 
 // Define a simple router
 
@@ -45,16 +47,22 @@ app.post('/', async (req, res) => {
 
 // API to get all users
 app.get('/', async (req, res) => {
+    // try {
+    //     const users = await User.find();
+    //     res.status(200).json(users);
+    // } catch (err) {
+    //     res.status(500).json({ message: err.message });
+    // }
     try {
         const users = await User.find();
-        res.json(users);
-    } catch (err) {
-        res.status(400).json({ message: err.message });
-    }
+        res.status(200).json(users);
+      } catch (err) {
+        res.status(500).json({ message: err.message });
+      }
 });
 
 // Start the Express server
-const PORT = 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
