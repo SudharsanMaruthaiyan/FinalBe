@@ -5,7 +5,8 @@ const cors = require('cors');
 
 // Middleware to parse incoming JSON
 
-// app.use(express.json());
+app.use(express.json());
+
 // const corsOptions = {
 //     origin: 'https://techx-eight.vercel.app',
 //     optionsSuccessStatus: 200
