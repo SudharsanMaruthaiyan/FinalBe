@@ -16,6 +16,7 @@ app.use(express.json());
 //   app.use(cors({ origin: '*' }));
 
 
+
 // MongoDB connection string
 const mongoURI = 'mongodb+srv://sudharsan6078:CSSe0IXzlDA2xzCj@done.l9ghk.mongodb.net/'; // Change this to your MongoDB URI
 mongoose.connect(mongoURI)
@@ -32,7 +33,7 @@ const UserSchema = new mongoose.Schema({
 const User = mongoose.model('User', UserSchema);
 
 // API to create a new user
-app.post('/get', async (req, res) => {
+app.post('/', async (req, res) => {
     const newUser = new User(req.body);
     try {
         const savedUser = await newUser.save();
