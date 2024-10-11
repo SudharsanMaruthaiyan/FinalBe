@@ -43,7 +43,7 @@ app.post('/', async (req, res)=>{
 
 app.get('/', async (req,res)=>{
     try{
-        const data = await Details.find();
+        const data = await Details.find({}).maxTimeMS(20000);
         res.json({data , message:"data display"})
     }
     catch(err){
