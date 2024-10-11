@@ -19,9 +19,10 @@ app.use(cors());
 
 
 // MongoDB connection string
-const mongoURI = 'mongodb+srv://sudharsan6078:CSSe0IXzlDA2xzCj@done.l9ghk.mongodb.net/'; // Change this to your MongoDB URI
+const mongoURI = 'mongodb+srv://sudharsan6078:6IZ1JhrnEcwq9z8r@done.l9ghk.mongodb.net/'; // Change this to your MongoDB URI
 mongoose.connect(mongoURI, {
     connectTimeoutMS: 50000,
+    serverSelectionTimeoutMS: 50000,
 })
 
 // Define a simple router
