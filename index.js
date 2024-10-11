@@ -19,7 +19,12 @@ app.use(express.json());
 
 // MongoDB connection string
 const mongoURI = 'mongodb+srv://sudharsan6078:CSSe0IXzlDA2xzCj@done.l9ghk.mongodb.net/'; // Change this to your MongoDB URI
-mongoose.connect(mongoURI)
+mongoose.connect(mongoURI,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    socketTimeoutMS: 45000, // Adjust as needed
+    connectTimeoutMS: 45000, // Adjust as needed
+})
 
 // Define a simple router
 
