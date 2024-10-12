@@ -63,6 +63,27 @@ app.get('/', async (req, res) => {
       }
 });
 
+app.put('/items/:id', async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { name, dept,college } = req.body;
+  
+      const updatedItem = await User.findByIdAndUpdate(
+        id,
+        { name, dept,college },
+        { new: true }
+      );
+  
+      if (!updatedItem) {
+        return res.status(404).json({ message: 'Item not found' });
+      }
+  
+      res.status(200).json(updatedItem);
+    } catch (error) {
+      res.status(400).json({ message: 'Error updating item', error });
+    }
+  });
+
 // Start the Express server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
